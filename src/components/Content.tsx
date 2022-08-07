@@ -10,17 +10,23 @@ interface MovieProps {
       Value: string;
     }>;
     Runtime: string;
-  }>
+  }>;
 }
 
-export function Content({movies}: MovieProps) {
+export function Content({ movies }: MovieProps) {
   return (
     <main>
       <div className="movies-list">
-        {movies.map(movie => (
-          <MovieCard key ={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.imdbID}
+            title={movie.Title}
+            poster={movie.Poster}
+            runtime={movie.Runtime}
+            rating={movie.Ratings[0].Value}
+          />
         ))}
       </div>
     </main>
-  )
+  );
 }
